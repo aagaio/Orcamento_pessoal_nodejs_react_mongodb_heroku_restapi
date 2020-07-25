@@ -9,14 +9,16 @@ const TransactionModel = require('../models/TransactionModel');
 
 const createTransaction = async (req, res) => {
   const { description, value, category, year, month, day, type } = req.body;
+  monthStr = String(month).padStart(2, 0);
+  dayStr = String(day).padStart(2, 0);
 
   const transaction = new TransactionModel({
     description: description,
     value: value,
     category: category,
     year: year,
-    month: month,
-    day: day,
+    month: monthStr,
+    day: dayStr,
     yearMonth: `${year}-${month}`,
     yearMonthDay: `${year}-${month}-${day}`,
     type: type,
@@ -82,6 +84,8 @@ const updateTransaction = async (req, res) => {
 
   const id = req.params.id;
   const { description, value, category, year, month, day, type } = req.body;
+  monthStr = String(month).padStart(2, 0);
+  dayStr = String(day).padStart(2, 0);
 
   try {
     const result = await TransactionModel.findOneAndUpdate(
@@ -91,8 +95,8 @@ const updateTransaction = async (req, res) => {
         value: value,
         category: category,
         year: year,
-        month: month,
-        day: day,
+        month: monthStr,
+        day: dayStr,
         yearMonth: `${year}-${month}`,
         yearMonthDay: `${year}-${month}-${day}`,
         // type: type, <- A categoria não poderá ser editada no front-end
