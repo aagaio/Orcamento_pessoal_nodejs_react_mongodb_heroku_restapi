@@ -19,8 +19,8 @@ const createTransaction = async (req, res) => {
     year: year,
     month: monthStr,
     day: dayStr,
-    yearMonth: `${year}-${month}`,
-    yearMonthDay: `${year}-${month}-${day}`,
+    yearMonth: `${year}-${monthStr}`,
+    yearMonthDay: `${year}-${month}-${dayStr}`,
     type: type,
   });
 
@@ -97,8 +97,8 @@ const updateTransaction = async (req, res) => {
         year: year,
         month: monthStr,
         day: dayStr,
-        yearMonth: `${year}-${month}`,
-        yearMonthDay: `${year}-${month}-${day}`,
+        yearMonth: `${year}-${monthStr}`,
+        yearMonthDay: `${year}-${month}-${dayStr}`,
         // type: type, <- A categoria não poderá ser editada no front-end
       }
     );
