@@ -25,7 +25,9 @@ export default function ModalNew({
   const [description, setDescription] = useState(
     selectedTransaction ? selectedTransaction.description : ''
   );
-  const [date, setDate] = useState(today);
+  const [date, setDate] = useState(
+    selectedTransaction ? selectedTransaction.yearMonthDay : today
+  );
   const [type, setType] = useState(
     selectedTransaction ? selectedTransaction.type : '-'
   );
